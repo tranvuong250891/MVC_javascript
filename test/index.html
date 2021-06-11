@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <script  src="./mvc.js"></script>
+</head>
+<body>
+    <h3>Navigation Links</h3>
+    <div>
+        <a href="index.html#/home">Home</a>
+        <a href="index.html#/contact">Home</a>
+        <a href="index.html#/about">Home</a>
+    </div>
+    <br><br>
+    <h3>View</h3>
+    <div view></div>
+
+    <script>
+
+        jsMvc.AddRoute(HomeController, 'home', 'index.html#/home')
+        jsMvc.AddRoute(ContactController, 'contact', 'index.html#/contact')
+        jsMvc.AddRoute(AboutController, 'about', 'index.html#/about')
+        jsMvc.Initialize()
+
+        function HomeController(model) {
+            model.Message = 'Hello world'
+
+        }
+
+        function ContactController(model) {
+            model.FirstName = "Steve"
+            model.LastName = "Doe"
+            model.Phone = 555
+        }
+
+        function AboutController(model) {
+            model.about = "About"
+        }
+
+    </script>
+</body>
+</html>
